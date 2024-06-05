@@ -1,0 +1,322 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  overflow: hidden;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 20px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #131313; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar */
+  border-radius: 2px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar on hover */
+}
+
+
+/* Add style for the active link */
+.navbar a.active,
+.navbar a.clicked {
+  position: relative;
+}
+
+/* Add animation for the background */
+.navbar a.active::after,
+.navbar a.clicked::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 25px);
+  left: -10px;
+  width: calc(100% + 20px);
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  animation: highlightBackground 0.7s ease-in-out; 
+}
+
+/* Keyframes for the animation */
+@keyframes highlightBackground {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(1.1); }
+  100% { transform: scaleX(1); }
+}
+
+/* Fade-in and fade-out animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+}
+
+/* Apply animations to sections */
+section {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+section.fade-in {
+  animation: fadeIn 0.9s forwards;
+}
+
+section.fade-out {
+  animation: fadeOut 0.2s forwards;
+}
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  margin: 0px 19px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  z-index: 1000;
+  justify-content: flex-start; /* Align items to the start by default */
+}
+
+.navbar a {
+  color: rgb(179, 179, 179);
+  text-decoration: none;
+  margin: 0vh 2.5vh; /* Adjust margin for better spacing */
+  padding-bottom: -50px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px; /* Ensure font size is readable */
+}
+
+/* Disabled state for navbar links */
+.navbar a.disabled {
+  pointer-events: none;
+}
+
+
+section {
+  padding: 0px 20px ; /* Add padding to avoid overlap with navbar */
+  min-height: 100vh;
+}
+
+section:nth-of-type(even) {
+  background-color: #333333;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: x-large;
+}
+
+/* Style for image box container */
+.image-box-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px; /* Space between boxes */
+  max-width: 188vh; /* Maximum width of the container */
+  margin: 0vh 0 3vh; /* Center the container */
+}
+
+
+/* Style for each image box */
+.image-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.842);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 400px; /* Adjust size as needed */
+  height: 250px; /* Adjust size as needed */
+  cursor: pointer;
+  user-select: none;
+  margin: 3vh 0 0 0;
+}
+
+/* Style for the image */
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Style for the caption */
+.image-box .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Hover effect */
+.image-box:hover {
+  transform: translateY(-10px) translateX(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Click effect */
+.image-box:active {
+  transform: translateY(-5px) scale(0.98);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar styles for projects section */
+#projects {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 60vh; /* Set a maximum height to trigger scrolling */
+}
+
+#projects::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+#projects::-webkit-scrollbar-track {
+  background: #333; /* Color of the track */
+}
+
+#projects::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar */
+  border-radius: 4px; /* Rounded corners */
+}
+
+#projects::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar on hover */
+}
+
+#projects::-webkit-scrollbar-thumb:active {
+  background: #444; /* Color of the scrollbar when active (clicked) */
+}
+
+
+#about,
+#projects,
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+#about h2,
+#projects h2,
+#contact h2 {
+  margin: 6vh 0 10px; /* Adjust margin for better spacing */
+  font-size: 4vh; /* Adjust font size */
+}
+
+#projects h2 a {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  color: #7c7c7c;
+  border: 2px solid #7c7c7c;  /* Add border style */
+  padding: 2px 6px; /* Add padding to create space around the text */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  text-decoration: none;
+}
+
+#projects h2 a:hover {
+  transform: translateY(-3px) translateX(2px);
+}
+
+#projects h2 a:active {
+  transform: translateY(1px) translateX(1px);
+}
+
+/* Media Queries for mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction:row;
+      align-items:center; /* Center items for mobile view */
+      padding: 10px; /* Reduce padding for smaller navbar */
+  }
+
+  .navbar a {
+      margin: 0px 8px; /* Stack links vertically with reduced spacing */
+      font-size: 10px; /* Slightly reduce font size */
+      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  /* Add style for the active link */
+.navbar a.active,
+.navbar a.clicked {
+  position: relative;
+}
+
+/* Add animation for the background */
+.navbar a.active::after,
+.navbar a.clicked::after {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  animation: highlightBackground 0.6s ease-in-out; 
+}
+
+  #home,
+  #about,
+  #projects,
+  #contact {
+      padding-top: 10px; /* Maintain padding for smaller screens */
+  }
+
+  #about h2,
+  #projects h2,
+  #contact h2 {
+      font-size: 24px; /* Adjust font size for smaller screens */
+  }
+}
+
+#about p {
+  padding: 0 300px;
+}
+
+#home h2 {
+  font-size: 5vh;
+}
