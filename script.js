@@ -87,8 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
               currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
               typeText();
             }, 1000); // Duration of backspace effect
-          }, 1000); // Duration to wait before starting backspace
-        }, 3000); // Duration of typing effect
+          }, 2500); // Duration to wait before starting backspace
+        }, 2500); // Duration of typing effect
       }
     
       typeText();
