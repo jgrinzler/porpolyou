@@ -2,6 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section");
     const navbarLinks = document.querySelectorAll(".navbar a");
     let isScrolling = false;
+    const firstText = document.querySelector('.typing-animation.first');
+    const phrases = [
+        "Hi, I'm Gem.",
+        "This is my Website.",
+        "I'm a BSIT Student.",
+        "I'm a Basketball Player.",
+        "I'm a Beginner Developer.",
+        "I'm a System Admin at The Bear Insight.",
+        "Never gonna give you up."
+  ];
+    let currentPhraseIndex = 0;
+    let isTyping = true;
+    let scrollTimeout;
+
 
     // Detect Firefox browser
     const isFirefox = typeof InstallTrigger !== 'undefined';
@@ -36,19 +50,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function smoothScroll(target, callback) {
         isScrolling = true;
-        const scrollDuration = isFirefox ? 380 : 400; // 1000ms for Firefox, 600ms for others
+        const scrollDuration = isFirefox ? 380 : 400;
+
+        // Disable pointer events on navbar links
+        navbarLinks.forEach(link => {
+            link.style.pointerEvents = 'none';
+        });
 
         target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
 
-        // Use a timeout to match the duration of the smooth scroll
-        setTimeout(() => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
             isScrolling = false;
+            // Re-enable pointer events on navbar links
+            navbarLinks.forEach(link => {
+                link.style.pointerEvents = 'auto';
+            });
             callback();
-        }, scrollDuration); // This timeout should match the duration of the smooth scroll
+        }, scrollDuration);
     }
+
+    function typeText() {
+        const textElement = firstText;
+        textElement.textContent = phrases[currentPhraseIndex];
+        textElement.classList.add('typing');
+    
+        setTimeout(() => {
+          textElement.classList.remove('typing');
+          setTimeout(() => {
+            textElement.classList.add('backspace');
+            setTimeout(() => {
+              textElement.classList.remove('backspace');
+              currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+              typeText();
+            }, 1000); // Duration of backspace effect
+          }, 1000); // Duration to wait before starting backspace
+        }, 3000); // Duration of typing effect
+      }
+    
+      typeText();
 
     navbarLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
