@@ -400,46 +400,34 @@ section:nth-of-type(even) {
   }
 }
 
-/* Additional CSS for typing effect */
 .typing-animation {
   display: inline-block;
   white-space: nowrap; /* Ensure text stays on one line */
   overflow: hidden; /* Hide the text that is not yet visible */
   border-right: 2px solid white; /* The blinking cursor */
-  animation: typing 2.8s steps(31, end) forwards, blink 1s step-end infinite; /* Adjust duration and steps as needed */
-  position: relative; /* Ensure the text doesn't shift */
+  animation: blink 1s step-end infinite; /* Ensure blinking animation */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for consistent character width */
+  font-size: 3rem; /* Adjust font size as needed */
 }
 
-/* Keyframes for typing and blinking cursor */
+/* Keyframes for typing effect */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
 
+/* Keyframes for backspacing effect */
+@keyframes backspace {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+/* Keyframes for blinking cursor */
 @keyframes blink {
   0% { border-right: 2px solid transparent; }
   50% { border-right: 2px solid white; }
   100% { border-right: 2px solid transparent; }
 }
-
-.typing-animation.typing {
-  animation: typing 2.8s steps(10, end) forwards;
-}
-
-.typing-animation.backspace {
-  animation: backspace 1s steps(10, end) forwards;
-}
-
-.typing-animation.new-text {
-  animation: typing 2.8s steps(10, end) forwards, blink 1s step-end infinite;
-}
-
-/* Keyframes for backspacing */
-@keyframes backspace {
-  from { width: 100%; }
-  to { width: 0%; }
-}
-
 
 #home h2 {
   font-size: 5vh;

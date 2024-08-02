@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
         "I'm a Beginner Developer.",
         "I'm a System Admin at The Bear Insight.",
         "Never gonna give you up."
-  ];
+    ];
     let currentPhraseIndex = 0;
-    let isTyping = true;
+    let isDeleting = false;
+    let charIndex = 0;
+    let typingSpeed = 100; // Speed of typing effect
+    let deletingSpeed = 50; // Speed of backspacing effect
+    let pauseTime = 1500; // Pause time between phrases
     let scrollTimeout;
 
 
@@ -74,24 +78,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function typeText() {
-        const textElement = firstText;
-        textElement.textContent = phrases[currentPhraseIndex];
-        textElement.classList.add('typing');
+        const currentPhrase = phrases[currentPhraseIndex];
+
+        if (isDeleting) {
+            // Remove characters
+            firstText.textContent = currentPhrase.substring(0, charIndex);
+            charIndex--;
+            if (charIndex < 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                setTimeout(typeText, pauseTime); // Pause before typing next phrase
+            } else {
+                setTimeout(typeText, deletingSpeed);
+            }
+        } else {
+            // Add characters
+            firstText.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex >= currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(typeText, pauseTime); // Pause before backspacing
+            } else {
+                setTimeout(typeText, typingSpeed);
+            }
+        }
+    }
+
+    // Start typing animation
+    typeText();
     
-        setTimeout(() => {
-          textElement.classList.remove('typing');
-          setTimeout(() => {
-            textElement.classList.add('backspace');
-            setTimeout(() => {
-              textElement.classList.remove('backspace');
-              currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-              typeText();
-            }, 1000); // Duration of backspace effect
-          }, 2500); // Duration to wait before starting backspace
-        }, 2500); // Duration of typing effect
-      }
     
-      typeText();
+    
 
     navbarLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
