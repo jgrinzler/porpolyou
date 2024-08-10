@@ -128,6 +128,165 @@ section {
   min-height: 100vh;
 }
 
+/* Center the container on the page */
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333333; /* Matching the gray background */
+  border-radius: 10px;
+  overflow: hidden;
+  width: 1240px;
+  height: 200px; /* Adjust height as needed */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.842);
+  margin: 50vh auto 0 auto; /* Center horizontally and push vertically down */
+  transform: translateY(-190%); /* Center vertically */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  padding: 0;
+}
+
+/* Socials Section */
+
+.socials-section {
+  gap: 3rem;
+}
+
+.socials-section,
+.linkedin-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  background-color: #444; /* Gray background */
+  padding: 10px;
+  color: white;
+  opacity: 0.8; /* Initial opacity */
+  transition: flex 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out; /* Add transition for padding */
+  height: 100%;
+}
+
+.socials-section:hover,
+.linkedin-section:hover {
+  opacity: 1; /* Increase opacity on hover */
+}
+
+/* Social Link Styling */
+.social-link, .linkedin-link {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative; /* Position relative for fade effect */
+  margin-bottom: 20px; /* Add margin between social links */
+  margin-left: -10px; /* Add margin to move icons to the left */
+}
+
+/* Social Link Styling */
+.social-link i {
+  font-size: 2rem; /* Adjust icon size */
+  padding: 5px; /* Initial padding */
+}
+
+.socials-section .social-link i {
+  transition: transform 0.4s ease-in-out;
+}
+
+.socials-section .social-link:hover i {
+  transform: translateY(-7px);
+}
+
+.social-link i {
+  font-size: 3rem; /* Adjust icon size */
+  padding: 5px; /* Initial reduced padding */
+  transition: padding 0.4s ease-in-out; /* Add transition for padding */
+}
+
+.linkedin-link img {
+  height: 50px; /* Fixed LinkedIn logo size */
+  width: auto; /* Maintain aspect ratio */
+  display: block;
+  padding: 5px; /* Initial reduced padding */
+  transition: padding 0.4s ease-in-out; /* Add transition for padding */
+}
+
+/* Username styles */
+.social-username, .linkedin-username {
+  opacity: 0; /* Start hidden */
+  font-size: 0.8rem; /* Smaller font size */
+  padding: 0 5px; /* Initial padding */
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, font-size 0.4s ease-in-out, padding 0.4s ease-in-out; /* Apply transitions */
+  transform: translateY(10px); /* Adjust for smooth transition */
+}
+
+
+/* Hover effects to expand sections */
+.socials-section:hover {
+  flex: 2;
+  padding: 0 15px 0 0; /* Increase padding on hover */
+}
+
+/* Hover effects to expand sections */
+.socials-section:hover .social-username {
+  opacity: 1;
+  font-size: 1.3rem; /* Increase font size on hover */
+  padding: 0 15px; /* Increase padding on hover */
+  transform: translateY(0); /* Move text into view */
+}
+
+.linkedin-section:hover {
+  flex: 2;
+  padding: 15px; /* Increase padding on hover */
+}
+
+.linkedin-section:hover .linkedin-username {
+  opacity: 1;
+  font-size: 1.3rem; /* Increase font size on hover */
+  padding: 0 15px; /* Increase padding on hover */
+  transform: translateY(0); /* Move text into view */
+}
+
+/* Reduce icon padding */
+.socials-section:not(:hover) .social-link i,
+.linkedin-section:not(:hover) .linkedin-link img {
+  padding: 5px; /* Reduced padding */
+}
+
+.socials-section:not(:hover) .social-username,
+.linkedin-section:not(:hover) .linkedin-username {
+  opacity: 0; /* Fade out */
+  font-size: 0.8rem; /* Smaller font size */
+  padding: 0 5px; /* Reduced padding */
+  transform: translateY(10px); /* Move text out of view */
+}
+
+/* Description Container */
+.description-container {
+  background-color: #444; /* Dark background to match the theme */
+  color: white; /* White text color */
+  padding: 20px; /* Padding around the text */
+  margin-bottom: 20px; /* Space between description and about container */
+  width: 100%; /* Match width with the about-container */
+  margin: 0 auto; /* Center the description container */
+  text-align: center; /* Center the text */
+  font-size: 1.1rem; /* Slightly larger text size */
+  line-height: 1.5; /* Increase line spacing for readability */
+  margin: 20vh 0 0 0; /* Center horizontally and push vertically down */
+  transform: translateY(-10%); /* Center vertically */
+}
+
+.description-container p {
+  margin-bottom: 30px; /* Space between paragraphs */
+  padding: 0 30vh;
+}
+
+.description-container h1 {
+  margin-bottom: 30px; /* Space between paragraphs */
+  font-size: 3rem;
+}
+
+
 section:nth-of-type(even) {
   background-color: #333333;
 }
