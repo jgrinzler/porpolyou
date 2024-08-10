@@ -136,9 +136,9 @@ section {
   background-color: #333333; /* Matching the gray background */
   border-radius: 10px;
   overflow: hidden;
-  width: 1240px;
+  width: 1000px;
   height: 200px; /* Adjust height as needed */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.842);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   margin: 50vh auto 0 auto; /* Center horizontally and push vertically down */
   transform: translateY(-190%); /* Center vertically */
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -148,12 +148,7 @@ section {
 /* Socials Section */
 
 .socials-section {
-  gap: 3rem;
-}
-
-.socials-section,
-.linkedin-section {
-  flex: 1;
+  flex: 0.7;
   display: flex;
   justify-content: center;
   align-items: center; /* Center items vertically */
@@ -161,7 +156,22 @@ section {
   padding: 10px;
   color: white;
   opacity: 0.8; /* Initial opacity */
-  transition: flex 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out; /* Add transition for padding */
+  transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out; /* Add transition for padding */
+  height: 100%;
+  gap: 3rem;
+}
+
+
+.linkedin-section {
+  flex: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  background-color: #444; /* Gray background */
+  padding: 10px;
+  color: white;
+  opacity: 0.8; /* Initial opacity */
+  transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out; /* Add transition for padding */
   height: 100%;
 }
 
@@ -223,7 +233,7 @@ section {
 
 /* Hover effects to expand sections */
 .socials-section:hover {
-  flex: 2;
+  flex: 1.2;
   padding: 0 15px 0 0; /* Increase padding on hover */
 }
 
@@ -236,7 +246,7 @@ section {
 }
 
 .linkedin-section:hover {
-  flex: 2;
+  flex: 1;
   padding: 15px; /* Increase padding on hover */
 }
 
