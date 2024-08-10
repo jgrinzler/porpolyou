@@ -20,6 +20,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let pauseTime = 1500; // Pause time between phrases
     let scrollTimeout;
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownButton = document.querySelector('.dropdown-button');
+        const descriptionContent = document.querySelector('.description-content');
+      
+        dropdownButton.addEventListener('click', function () {
+          if (descriptionContent.classList.contains('active')) {
+            descriptionContent.classList.remove('active');
+          } else {
+            descriptionContent.classList.add('active');
+          }
+        });
+      });      
+      
 
     // Detect Firefox browser
     const isFirefox = typeof InstallTrigger !== 'undefined';

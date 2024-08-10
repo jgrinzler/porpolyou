@@ -276,14 +276,39 @@ section {
   transform: translateY(-10%); /* Center vertically */
 }
 
-.description-container p {
-  margin-bottom: 30px; /* Space between paragraphs */
-  padding: 0 30vh;
+/* Initially hide the content */
+ .description-content {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out; /* Smooth transition for expanding/collapsing */
 }
 
-.description-container h1 {
-  margin-bottom: 30px; /* Space between paragraphs */
-  font-size: 3rem;
+/* Show the content when active */
+.description-content.active {
+  display: block;
+  max-height: 1000px; /* Large value to ensure full expansion */
+}
+
+/* Header Styling */
+.description-header {
+  margin: 0; /* Remove default margin */
+}
+
+/* Dropdown Button Styling */
+.dropdown-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for arrow rotation */
+}
+
+/* Rotate the arrow when content is active */
+.description-content.active + .dropdown-button i {
+  transform: rotate(180deg); /* Rotate arrow when expanded */
 }
 
 
