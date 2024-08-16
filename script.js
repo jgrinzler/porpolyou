@@ -62,9 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.addEventListener('mouseleave', () => {
           icon.classList.remove('bounce'); // Stop bounce animation if the mouse leaves the icon
         });
-      });
-
-      
+    });
 
     function smoothScroll(target, callback) {
         isScrolling = true;
@@ -87,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
             navbarLinks.forEach(link => {
                 link.style.pointerEvents = 'auto';
             });
-            callback();
+            if (callback) callback(); // Trigger callback after scrolling completes
         }, scrollDuration);
     }
 
@@ -126,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     navbarLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
-            if (isScrolling) return;
+            if (isScrolling) return; // Prevent processing if already scrolling
             event.preventDefault();
             const targetId = this.getAttribute("href");
             const targetSection = document.querySelector(targetId);
