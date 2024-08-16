@@ -781,7 +781,7 @@ section:nth-of-type(even) {
   white-space: nowrap; /* Ensure text stays on one line */
   overflow: hidden; /* Hide the text that is not yet visible */
   border-right: 2px solid white; /* The blinking cursor */
-  animation: blink 1s step-end infinite; /* Ensure blinking animation */
+  animation: blink 1s step-start infinite; /* Ensure blinking animation */
   font-family: 'Courier New', Courier, monospace; /* Monospaced font for consistent character width */
   font-size: 3rem; /* Adjust font size as needed */
 }

@@ -16,10 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let charIndex = 0;
     let typingSpeed = 100; // Speed of typing effect
     let deletingSpeed = 50; // Speed of backspacing effect
-    let pauseTime = 800; // Pause time between phrases
+    let pauseTime = 2000; // Pause time between phrases
     let scrollTimeout;
     const icons = document.querySelectorAll('.socials i');
-
     // Detect Firefox browser
     const isFirefox = typeof InstallTrigger !== 'undefined';
 
@@ -65,6 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
 
+      
+
     function smoothScroll(target, callback) {
         isScrolling = true;
         const scrollDuration = isFirefox ? 380 : 400;
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function typeText() {
         const currentPhrase = phrases[currentPhraseIndex];
-
+    
         if (isDeleting) {
             // Remove characters
             firstText.textContent = currentPhrase.substring(0, charIndex);
@@ -115,6 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(typeText, typingSpeed);
             }
         }
+    
+        // Ensure border-right is always visible
+        firstText.style.borderRight = '2px solid white';
     }
 
     // Start typing animation
