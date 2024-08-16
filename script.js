@@ -17,22 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let charIndex = 0;
     let typingSpeed = 100; // Speed of typing effect
     let deletingSpeed = 50; // Speed of backspacing effect
-    let pauseTime = 1500; // Pause time between phrases
+    let pauseTime = 800; // Pause time between phrases
     let scrollTimeout;
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const dropdownButton = document.querySelector('.dropdown-button');
-        const descriptionContent = document.querySelector('.description-content');
-      
-        dropdownButton.addEventListener('click', function () {
-          if (descriptionContent.classList.contains('active')) {
-            descriptionContent.classList.remove('active');
-          } else {
-            descriptionContent.classList.add('active');
-          }
-        });
-      });      
-      
+    const icons = document.querySelectorAll('.socials i');
 
     // Detect Firefox browser
     const isFirefox = typeof InstallTrigger !== 'undefined';
@@ -64,6 +51,20 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    icons.forEach(icon => {
+        icon.addEventListener('mousedown', () => {
+          icon.classList.add('bounce'); // Start bounce animation on press
+        });
+    
+        icon.addEventListener('mouseup', () => {
+          icon.classList.remove('bounce'); // Stop bounce animation on release
+        });
+    
+        icon.addEventListener('mouseleave', () => {
+          icon.classList.remove('bounce'); // Stop bounce animation if the mouse leaves the icon
+        });
+      });
 
     function smoothScroll(target, callback) {
         isScrolling = true;
@@ -120,9 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Start typing animation
     typeText();
     
-    
-    
-
     navbarLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
             if (isScrolling) return;

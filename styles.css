@@ -128,57 +128,159 @@ section {
   min-height: 100vh;
 }
 
-/* Center the container on the page */
 .about-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  background-color: #333333; /* Matching the gray background */
-  border-radius: 10px;
-  overflow: hidden;
-  width: 1000px;
-  height: 200px; /* Adjust height as needed */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  margin: 50vh auto 0 auto; /* Center horizontally and push vertically down */
-  transform: translateY(-190%); /* Center vertically */
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  padding: 0;
+  background-color: #38383800;
+  width: 60%;
+  min-height: 2vh; /* Ensure the container covers the viewport height */
+  box-shadow: none;
+  border-radius: 30px;
+  overflow: visible; /* Show overflow content */
+  margin-top: 10px;
+  margin-bottom: 20vh;
+  padding: 0px;
 }
+
+.container-flex {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Full width */
+  gap: 30px; /* Space between sections */
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8vh;
+}
+
+.linkedin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container-mobile { 
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .about-container-mobile {
+    display: block;
+    align-items: center;
+    background-color: #383838;
+    width: 100%;
+    height: auto; /* Adjust height automatically */
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible; /* Show overflow content */
+    margin-top: 10px;
+    padding: 0px;
+  }
+
+  .about-container {
+    display: none; /* Hide the original container on mobile */
+  }
+
+  .container-flex {
+    flex-direction: column; /* Stack items vertically on mobile */
+  }
+
+  .socials {
+    font-size: 10px;
+    padding-top: 5vh;
+  }
+
+  .linkedin {
+    margin-top: 10vh;
+    margin-bottom: 0;
+  }
+  
+  #about {
+    padding-bottom: 0;
+  }
+  
+  .linkedin-user {
+    margin-bottom: 4vh;
+  }
+}
+
+
+
+
+
+
+/* Ensure the section is a block-level element and has a height */
+.scrollable-section {
+  height: 200px; /* Adjust height as needed */
+  overflow-y: 1080px; /* Adds vertical scrollbar if content overflows */
+  overflow-x: hidden; /* Hide horizontal scrollbar if not needed */
+  padding: 20px; /* Adjust padding as needed */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: Customize scrollbar appearance */
+.scrollable-section::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners of the scrollbar thumb */
+}
+
+.scrollable-section::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the scrollbar thumb when hovered */
+}
+
 
 /* Socials Section */
 
+/* Adjustments for hover effect on socials-section */
 .socials-section {
   flex: 0.7;
   display: flex;
   justify-content: center;
-  align-items: center; /* Center items vertically */
-  background-color: #444; /* Gray background */
-  padding: 10px;
+  align-items: center;
+  background-color: #444;
+  padding: 30px 30px;
   color: white;
-  opacity: 0.8; /* Initial opacity */
-  transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out; /* Add transition for padding */
-  height: 100%;
+  opacity: 0.8;
+  transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out;
+  height: auto; /* Adjust to auto to prevent height issues */
   gap: 3rem;
+  border-radius: 30px;
 }
 
+/* Hover effect for the socials-section */
+.socials-section:hover {
+  opacity: 1;
+  padding: 30px 30px;
+}
 
+/* Adjustments for hover effect on linkedin-section */
 .linkedin-section {
   flex: 0.7;
   display: flex;
   justify-content: center;
-  align-items: center; /* Center items vertically */
-  background-color: #444; /* Gray background */
-  padding: 10px;
+  align-items: center;
+  background-color: #444;
+  padding: 22px 50px;
   color: white;
-  opacity: 0.8; /* Initial opacity */
-  transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out; /* Add transition for padding */
-  height: 100%;
+  opacity: 0.8;
+  transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out;
+  height: auto; /* Adjust to auto to prevent height issues */
+  border-radius: 30px;
 }
 
-.socials-section:hover,
-.linkedin-section:hover {
-  opacity: 1; /* Increase opacity on hover */
-}
+
+
 
 /* Social Link Styling */
 .social-link, .linkedin-link {
@@ -193,10 +295,60 @@ section {
   margin-left: -10px; /* Add margin to move icons to the left */
 }
 
-/* Social Link Styling */
+@media (max-width: 768px) { 
+
+  .social-link, .linkedin-link {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    gap: 10px;
+    position: relative; /* Position relative for fade effect */
+    padding: 0;
+  }
+
+  .socials-section {
+    flex: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+    background-color: #444; /* Gray background */
+    padding: 0px;
+    color: white;
+    opacity: 0.8; /* Initial opacity */
+    transition: flex 0.6s ease-in-out, opacity 0.6s ease-in-out, padding 0.6s ease-in-out; /* Add transition for padding */
+    height: 100%;
+    gap: 3rem;
+  }
+
+  .social-username, .linkedin-username {
+    opacity: 1; /* Start hidden */
+    font-size: 1rem; /* Smaller font size */
+    padding: 0 5px; /* Initial padding */
+  }
+}
+
+/* General Container Styling */
+.container {
+  max-width: 100%; /* Ensures container doesn't exceed 100% of the viewport width */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  padding: 0 15px; /* Add padding for mobile friendliness */
+  box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+}
+
+/* General Social Link Styling */
 .social-link i {
   font-size: 2rem; /* Adjust icon size */
   padding: 5px; /* Initial padding */
+  transition: padding 0.4s ease-in-out; /* Add transition for padding */
+}
+
+@media (max-width: 768px) { 
+  .social-link i {
+    font-size: 2rem; /* Adjust icon size */
+  }
+
 }
 
 .socials-section .social-link i {
@@ -205,12 +357,6 @@ section {
 
 .socials-section .social-link:hover i {
   transform: translateY(-7px);
-}
-
-.social-link i {
-  font-size: 3rem; /* Adjust icon size */
-  padding: 5px; /* Initial reduced padding */
-  transition: padding 0.4s ease-in-out; /* Add transition for padding */
 }
 
 .linkedin-link img {
@@ -230,95 +376,133 @@ section {
   transform: translateY(10px); /* Adjust for smooth transition */
 }
 
-
 /* Hover effects to expand sections */
 .socials-section:hover {
-  flex: 1.2;
-  padding: 0 15px 0 0; /* Increase padding on hover */
+  flex: 0.9;
 }
 
-/* Hover effects to expand sections */
 .socials-section:hover .social-username {
   opacity: 1;
   font-size: 1.3rem; /* Increase font size on hover */
-  padding: 0 15px; /* Increase padding on hover */
+  padding: 0 0px; /* Increase padding on hover */
   transform: translateY(0); /* Move text into view */
 }
 
 .linkedin-section:hover {
-  flex: 1;
-  padding: 15px; /* Increase padding on hover */
+  flex: 0.8;
+  padding: auto 10px;
 }
 
 .linkedin-section:hover .linkedin-username {
   opacity: 1;
   font-size: 1.3rem; /* Increase font size on hover */
-  padding: 0 15px; /* Increase padding on hover */
   transform: translateY(0); /* Move text into view */
 }
 
-/* Reduce icon padding */
+/* Reduce icon padding when not hovered */
 .socials-section:not(:hover) .social-link i,
 .linkedin-section:not(:hover) .linkedin-link img {
   padding: 5px; /* Reduced padding */
 }
 
-.socials-section:not(:hover) .social-username,
-.linkedin-section:not(:hover) .linkedin-username {
-  opacity: 0; /* Fade out */
-  font-size: 0.8rem; /* Smaller font size */
-  padding: 0 5px; /* Reduced padding */
-  transform: translateY(10px); /* Move text out of view */
+
+
+
+
+/* Styling for the description container */
+.about-me-section {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+  padding: 50px 0;
+  text-align: center;
+  position: relative;
 }
 
-/* Description Container */
-.description-container {
-  background-color: #444; /* Dark background to match the theme */
-  color: white; /* White text color */
-  padding: 20px; /* Padding around the text */
-  margin-bottom: 20px; /* Space between description and about container */
-  width: 100%; /* Match width with the about-container */
-  margin: 0 auto; /* Center the description container */
-  text-align: center; /* Center the text */
-  font-size: 1.1rem; /* Slightly larger text size */
-  line-height: 1.5; /* Increase line spacing for readability */
-  margin: 20vh 0 0 0; /* Center horizontally and push vertically down */
-  transform: translateY(-10%); /* Center vertically */
+.about-me-section .content-container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* Initially hide the content */
- .description-content {
-  display: none;
-  overflow: hidden;
-  transition: max-height 0.5s ease-out; /* Smooth transition for expanding/collapsing */
+@media (max-width: 768px) {
+
+  .about-me-section .content-container {
+  margin: 5vh auto;
+  }
 }
 
-/* Show the content when active */
-.description-content.active {
-  display: block;
-  max-height: 1000px; /* Large value to ensure full expansion */
+.about-me-section h1 {
+  font-size: 3rem;
+  color: #4caf50; /* Light green text color */
+  margin-bottom: 10px;
 }
 
-/* Header Styling */
-.description-header {
-  margin: 0; /* Remove default margin */
-}
-
-/* Dropdown Button Styling */
-.dropdown-button {
-  background: none;
-  border: none;
-  color: white;
+.about-me-section h3 {
   font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 10px;
-  transition: transform 0.3s ease-in-out; /* Smooth transition for arrow rotation */
+  color: #9e9e9e; /* Slightly muted color for subtitle */
+  margin-bottom: 30px;
 }
 
-/* Rotate the arrow when content is active */
-.description-content.active + .dropdown-button i {
-  transform: rotate(180deg); /* Rotate arrow when expanded */
+.about-me-section .profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 5px solid #4caf50; /* Same light green for border */
+}
+
+.about-me-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-me-section .contact-button {
+  background-color: #4caf50; /* Light green button */
+  color: #121212; /* Dark text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.about-me-section .contact-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.about-me-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2c2c2c; /* Match the background */
+  transform: translateY(-70%) skewY(-3deg);
+  transform-origin: 100% 0;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .about-me-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2c2c2c; /* Match the background */
+    transform: translateY(-65%) skewY(-7deg);
+    transform-origin: 100% 0;
+    z-index: -1;
+  }
+  
 }
 
 
@@ -432,8 +616,6 @@ section:nth-of-type(even) {
   text-align: center;
   min-height: 100vh;
 }
-
-
 
 .container {
   display: flex;
