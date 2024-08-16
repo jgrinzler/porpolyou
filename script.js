@@ -7,10 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
         "Hi, I'm Gem.",
         "This is my Website.",
         "I'm a BSIT Student.",
-        "I'm a Basketball Player.",
-        "I'm a Beginner Developer.",
-        "I'm a System Admin at The Bear Insight.",
-        "Never gonna give you up."
+        "I play Basketball.",
+        "I'm a Beginner Dev.",
+        "I'm a SysAd at The Bear Insight.",
     ];
     let currentPhraseIndex = 0;
     let isDeleting = false;
